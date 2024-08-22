@@ -15,10 +15,10 @@
             <img src="style/Vector.png">
         </div>
         <div id="ingreso">
-            <textarea id="ingreso-texto">Ingrese texto aquí</textarea>
+            <textarea id="ingreso-texto">Ingrese texto aqui</textarea>
             <div id="ingreso-controles">
-                <button class="encriptar">Encriptar</button> 
-                <button class="desencriptar">Desencriptar</button>
+                <button class="encriptar" onclick="encripted()">Encriptar</button> 
+                <button class="desencriptar" onclick="decripted()">Desencriptar</button>
             </div>
         </div>
 
@@ -28,11 +28,68 @@
                 <p class="negrita">Ningún mensaje fue encontrado</p>
                 <p class="parrafo">Ingresa el texto que desees encriptar o desencriptar.</p>
             </div>
-            <div id="respuesta-controles"></div>
+            <div id="respuesta-controles">
+                
+            </div>
         </div>
     </section>
     <footer>
         Desarrollado por Jose Daniel Torres
     </footer>
+
+    <script language="javascript">
+        function encripted()
+        {
+            var ing=document.getElementById('ingreso-texto').value;
+            console.log(ing);
+            var letr=ing.split('');
+            var n=0;
+            var encriptada="";
+            while(n<letr.length)
+            {
+                if(letr[n]=="e")
+                {
+                    encriptada=encriptada+"enter";
+                }
+                else if(letr[n]=="i")
+                {
+                    encriptada=encriptada+"imes";
+                }
+                else if(letr[n]=="a")
+                {
+                    encriptada=encriptada+"ai";
+                }
+                else if(letr[n]=="o")
+                {
+                    encriptada=encriptada+"ober";
+                }
+                else if(letr[n]=="u")
+                {
+                    encriptada=encriptada+"ufat";
+                }
+                else
+                {
+                    encriptada=encriptada+letr[n];
+                }
+                n++;
+            }
+            document.getElementById('respuesta-texto').innerHTML=encriptada;
+            console.log(encriptada);
+            console.log("Encriptando");
+        }
+        function decripted()
+        {
+            var ing=document.getElementById('ingreso-texto').value;
+            console.log(ing);
+            ing=ing.replaceAll("enter","e");
+            ing=ing.replaceAll("imes","i");
+            ing=ing.replaceAll("ai","a");
+            ing=ing.replaceAll("ober","o");
+            ing=ing.replaceAll("ufat","u");
+            console.log(ing);
+            document.getElementById('respuesta-texto').innerHTML=ing;
+            console.log("Desencriptando");
+        }
+    </script>
 </body>
 </html>

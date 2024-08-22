@@ -57,6 +57,7 @@ html, body{
 #ingreso-texto{
     color: #0A3871;
     font-size: 32px;
+    font-family: "Roboto", system-ui;
     align-items: start;
     border-style: none;
     background-color: inherit;
